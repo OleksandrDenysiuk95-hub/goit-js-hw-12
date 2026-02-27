@@ -3,6 +3,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
+const loadMoreBtn = document.querySelector('.load-more');
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
@@ -23,7 +24,7 @@ export function createGallery(images) {
       }) => `
       <li class="gallery-item">
         <a class="gallery-link" href="${largeImageURL}">
-          <img src="${webformatURL}" alt="${tags}" />
+          <img src="${webformatURL}" alt="${tags}" loading="lazy" />
           <div class="info">
             <div class="info-item"><b>Likes</b><p>${likes}</p></div>
             <div class="info-item"><b>Views</b><p>${views}</p></div>
@@ -35,20 +36,24 @@ export function createGallery(images) {
     )
     .join('');
 
-  gallery.innerHTML = markup; // Додавання за одну операцію
+  gallery.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
 
 export function clearGallery() {
   gallery.innerHTML = '';
 }
-
 export function showLoader() {
-  loader.classList.add('is-active'); // Клас бібліотеки css-loader
+  loader.classList.add('is-active');
   loader.classList.remove('is-hidden');
 }
-
 export function hideLoader() {
   loader.classList.remove('is-active');
   loader.classList.add('is-hidden');
+}
+export function showLoadMoreButton() {
+  loadMoreBtn.classList.remove('is-hidden');
+}
+export function hideLoadMoreButton() {
+  loadMoreBtn.classList.add('is-hidden');
 }

@@ -12,7 +12,7 @@ body {
   padding: 24px;
 }
 
-/* 1. Стилізація форми */
+/* 1. Стилізація форми та кнопок*/
 .form {
   display: flex;
   justify-content: center;
@@ -20,15 +20,20 @@ body {
   margin-bottom: 32px;
 }
 
+.label {
+  height: 40px;
+}
+
 .form input {
   width: 272px;
-  height: 40px;
+  height: 24px;
   padding: 8px 16px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   outline: none;
   font-size: 16px;
   transition: border-color 250ms ease;
+  letter-spacing: 4%;
 }
 
 .form input:hover {
@@ -39,19 +44,32 @@ body {
   border-color: var(--primary-color);
 }
 
-.form button {
+.form button,
+.load-more {
+  height: 40px;
   padding: 8px 20px;
   background-color: var(--primary-color);
   color: #fff;
-  border: none;
+  border: 1px solid var(--primary-color);
   border-radius: 8px;
   font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 4%;
   cursor: pointer;
   transition: background-color 250ms ease;
+  transition: border-color 250ms ease;
 }
 
-.form button:hover {
+.form button:hover,
+.load-more:hover {
   background-color: #6c8cff;
+  border-color: #6c8cff;
+}
+
+.load-more {
+  display: block;
+  margin: 32px auto;
+  min-width: 150px;
 }
 
 /* 2. Стилізація галереї */

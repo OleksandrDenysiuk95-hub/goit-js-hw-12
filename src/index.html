@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>goit-js-hw-11 - Image Search</title>
+    <title>goit-js-hw-12 - Image Search</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <section class="search-section">
       <form class="form" id="search-form">
-        <label>
+        <label class="label">
           <input
             type="text"
             name="search-text"
@@ -21,8 +21,9 @@
         <button type="submit">Search</button>
       </form>
     </section>
-    <div class="loader loader-default is-hidden"></div>
     <ul class="gallery"></ul>
+    <button type="button" class="load-more is-hidden">Load more</button>
+    <div class="loader loader-default is-hidden"></div>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
