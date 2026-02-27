@@ -25,16 +25,27 @@ form.addEventListener('submit', async event => {
 
   try {
     const data = await getImagesByQuery(query, page);
+
     if (data.hits.length === 0) {
       iziToast.error({
-        message: 'Sorry, no images found matching your query.',
+        message:
+          'Sorry, there are no images matching your search query. Please try again!',
       });
       return;
     }
+
     render.createGallery(data.hits);
-    if (data.totalHits > perPage) render.showLoadMoreButton();
+
+    if (data.totalHits > perPage) {
+      render.showLoadMoreButton();
+    } else {
+      iziToast.info({
+        message: "We're sorry, but you've reached the end of search results.",
+        position: 'bottomCenter',
+      });
+    }
   } catch (err) {
-    iziToast.error({ message: 'Error fetching data!' });
+    iziToast.error({ message: 'Something went wrong!' });
   } finally {
     render.hideLoader();
     event.target.reset();
